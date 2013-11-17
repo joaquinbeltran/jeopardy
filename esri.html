@@ -63,8 +63,8 @@
         //selected features are clicked a popup window will appear displaying the content defined in the info template.
         var featureLayer = new FeatureLayer("http://servicesbeta.esri.com/ArcGIS/rest/services/Demographics/USA_1990-2000_Population_Change/MapServer/4",{
           /*mode: FeatureLayer.MODE_SELECTION,
-          infoTemplate: new InfoTemplate("Block: ${BLOCK}", "${*}"),
-          outFields: ["POP2000","HOUSEHOLDS","HSE_UNITS", "TRACT", "BLOCK"]*/
+          infoTemplate: new InfoTemplate("Block: ${BLOCK}", "${*}"),*/
+          outFields: ["NAME"]
         });
 
         // selection symbol used to draw the selected census block points within the buffer polygon
@@ -87,12 +87,21 @@
         //when the map is clicked create a buffer around the click point of the specified distance.
         map.on("click", function(evt){
           //define input buffer parameters
-          var params = new BufferParameters();
+    
+        /*var params = new BufferParameters();
           params.geometries  = [ evt.mapPoint ];
           params.distances = [ 1 ];
           params.unit = GeometryService.UNIT_STATUTE_MILE;
 
-          geometryService.buffer(params);
+          geometryService.buffer(params);*/
+
+        if (evt.graphic.attributes.NAME == "Texas") {
+          alert('Correct!');
+        }
+        else {
+          alert('Incorrect!');
+        }
+
         });
 
         geometryService.on("buffer-complete", function(result){
@@ -117,7 +126,7 @@
           featureLayer.selectFeatures(query, FeatureLayer.SELECTION_NEW, function(results){
             var totalPopulation = sumPopulation(results);
             var r = "";
-            r = "<b>The total Census Block population within the buffer is <i>" + totalPopulation + "</i>.</b>";
+            r = "Select the state that is known as the Lone Star State.";
             dom.byId('messages').innerHTML = r;
           });
         });
@@ -134,7 +143,7 @@
   </head>
 
   <body>
-    <span id="messages">Click on the map to select census block points within 1 mile.</span>
+    <span id="messages">Select the state that is known as the Lone Star State.</span>
     <div id="mapDiv"></div>
   </body>
 </html>
