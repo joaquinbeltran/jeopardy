@@ -4,6 +4,10 @@
 <title>Jeopardy for the Classroom</title>
 <link href="./css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="./css/custom.css" rel="stylesheet" type="text/css" />
+
+<link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+
 <style>
 
 	body{
@@ -11,7 +15,15 @@
 	}
 
 	* {
-		font-family: roboto, arial;
+		font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+	}
+
+	h3 {
+		font-family: 'Arvo', Georgia, Times, serif;
+    	font-size: 59px;
+    	text-align:center;
+    	color:#000090;
+    	font-weight:bold;
 	}
 
 	#questions{ 
@@ -71,7 +83,7 @@
 		font-size:17px;
 		color:#000090;
 		font-weight:bold;	
-		font-family:roboto,arial;
+		font-family:'PT Sans', Helvetica, Arial, sans-serif;
 	}
 
 	#score h2{ 
@@ -79,13 +91,13 @@
 		color: #000090;
 		font-weight:bold;
 		font-size:36px;
-		font-family:roboto, arial;
+		font-family:'PT Sans', Helvetica, Arial, sans-serif;
 	}
 
 	#score h4{
 		color: #000090;
 		margin-left:25px;
-		font-family:roboto, arial;
+		font-family:'PT Sans', Helvetica, Arial, sans-serif;
 	}
 
 	.teamscore{ 
@@ -148,7 +160,9 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row" id="title"><a href = "http://i.imgur.com/q743kde.png"><img src="jeopardylogo.png" /></a></div>
+		<div class="row" id="title">
+			<a href = "http://i.imgur.com/q743kde.png"><h3>Jeopardy</h3></a>
+		</div>
 		<div class="row">
 			<div id="questions" class="col-lg-9">
 				<div class="row" id="cat-row">
